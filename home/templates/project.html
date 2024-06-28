@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" class="row g-3">
+    <div class="col-md-12">
+        <div class="card bg-primary text-white border-0 rounded">
+            <div class="card-header d-flex justify-content-between">
+                <h2 class="card-title mb-0">Edit Project</h2>
+                <button type="submit" class="btn btn-light">Save Project</button>
+            </div>
+        </div>
+    </div>
+
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="col-md-12">
+        <button type="submit" class="btn btn-primary float-end">Save Project</button>
+    </div>
+</form>
+
+{% endblock content %}

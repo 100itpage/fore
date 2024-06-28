@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+    <div class="text-white px-3 py-1 my-3 bg-primary rounded">
+        <h2>Welcome
+            {% if user.first_name %}
+            {{ user.first_name }}
+            {% else %}
+            {{ user.username }}
+            {% endif %}
+        </h2>
+    </div>
+    <p> Manage your project's risks and other details.</p>
+
+    {% if has_project %}
+    {% for prj in projects %}
+    <a href="{% url 'risks' prj.id %}"> Risk Log</a> for <a href="{% url 'project' prj.id %}"> {{ prj }} </a>
+    {% endfor %}
+    {% else %}
+    <div class="text-white px-3 py-1 my-3 bg-warning rounded">
+        You do not have any projects!
+        <br>
+        Use this form to <a href="{% url 'create_project' %}">create your project</a>.
+    </div>
+    {% endif %}
+
+    {% else %}
+    <h4>Forestall v1.0</h4>
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, dolorem in? Saepe at corrupti fugiat, modi quasi ad
+    quis illum fuga libero sapiente! Exercitationem quidem corrupti facilis, dolore id reiciendis? <br>
+    {% endif %}
+
+</div>
+{% endblock %}

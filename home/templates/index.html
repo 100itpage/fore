@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-primary p-3 border rounded">Forestall</h1>
+</div>
+
+<div class="container">
+    {% if user.is_authenticated %}
+    {{ user.first_name}} ({{ user.username }}) Start with creating <a>a project</a>
+    {% else %}
+    <div class="p-2">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores itaque similique, sapiente nesciunt cumque
+            nihil labore iusto modi beatae atque, illum incidunt iure ut numquam adipisci porro, harum voluptatem.
+            Aliquam
+            laborum, pariatur quisquam nihil delectus laudantium saepe odit dolorum molestiae atque magni dolore
+            praesentium
+            fuga eius. Dignissimos, deleniti nisi illo atque ipsam aut omnis dicta odio at cum in minima, perspiciatis
+            sapiente qui. Sapiente, omnis assumenda voluptate deserunt facilis laudantium exercitationem reiciendis
+            cumque
+            odit id quam esse ut fuga, numquam nulla sit earum magnam beatae asperiores temporibus eligendi libero
+            aliquid
+            officiis nostrum. Praesentium accusamus non dolor numquam tempore commodi ducimus?
+        </p>
+        <p>Try Today! It is Free.</p>
+    </div>
+
+    {% endif %}
+</div>{% endblock %}
